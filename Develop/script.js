@@ -11,6 +11,12 @@ $(document).ready(function () {
     }
     displayToday();
 
+    $("#clearFieldsBtn").click(function (event) {
+        event.preventDefault;
+        $("textarea").val("");
+        localStorage.clear();
+      });
+
     // loops through the allhours time-block defined above
     function timeComparison() {
         $.each(allHours, function (i) {
