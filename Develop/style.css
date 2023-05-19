@@ -1,6 +1,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
+    line-height: 1;
 }
 
 textarea {
@@ -12,15 +13,29 @@ textarea {
     padding: 10px;
 }
 
+.header {
+    background: gray;
+    text-align: center;
+    color: white;
+    border-radius: 0;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 0px;
+    border-bottom: 10px solid black;
+}
+
 .description {
     white-space: pre-wrap;
 }
 
 .time-block {
     border-radius: 15px;
+    text-align: center;
 }
 
 .row {
+    white-space: pre-wrap;
+    height: 80px;
     border-top: 1px solid white;
 }
 
@@ -56,4 +71,9 @@ textarea {
 .saveBtn i:hover {
     font-size: 20px;
     transition: all 0.3s ease-in-out;
+}
+
+.input-group-text {
+    width: 4rem;
+    color: black;
 }

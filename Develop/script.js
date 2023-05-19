@@ -1,23 +1,61 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-$(function () {
-    // TODO: Add a listener for click events on the save button. This code should
-    // use the id in the containing time-block as a key to save the user input in
-    // local storage. HINT: What does `this` reference in the click listener
-    // function? How can DOM traversal be used to get the "hour-x" id of the
-    // time-block containing the button that was clicked? How might the id be
-    // useful when saving the description in local storage?
-    //
-    // TODO: Add code to apply the past, present, or future class to each time
-    // block by comparing the id to the current hour. HINTS: How can the id
-    // attribute of each time-block be used to conditionally add or remove the
-    // past, present, and future classes? How can Day.js be used to get the
-    // current hour in 24-hour time?
-    //
-    // TODO: Add code to get any user input that was saved in localStorage and set
-    // the values of the corresponding textarea elements. HINT: How can the id
-    // attribute of each time-block be used to do this?
-    //
-    // TODO: Add code to display the current date in the header of the page.
+// moment.format should bring the current time in from the js
+$(document).ready(function () {
+    let saveButton = $(".save-btn");
+    let currentDay = $("#currentDay");
+    let currentHour = moment().format("H");
+    let allHours = $(".time-block");
+    // shows todays date
+    function displayToday() {
+        let todaysDate = moment().format("MMMM DD, YYYY");
+        currentDay.text(todaysDate);
+    }
+    displayToday();
+
+    // loops through the allhours time-block defined above
+    function timeComparison() {
+        $.each(allHours, function (i) {
+            var hourId = parseInt($(this).attr("id"));
+            if (hourId === currentHour) {
+                $(this).next().addClass("present");
+            } else if (hourId < currentHour) {
+                $(this).next().addClass("past");
+            } else if (hourId > currentHour) {
+                $(this).next().addClass("future");
+            }
+        });
+    }
+    timeComparison();
+
+    // saves user inputs to local storage 
+    function saveToStorage(event) {
+        let userInput = $(event.target).parent().find(".form-control").val();
+        // sets the time slot like above but sources value with id for each text
+        let timeSlot = $(event.target).parent().find(".form-control").attr("id");
+        // commits both of the values to local storage
+        localStorage.setItem(timeSlot, userInput);
+    }
+
+    function getLocalStorage() {
+        var hoursId = [];
+        $('.form-control').each(function () {
+            var id = $(this).attr('id');
+            hoursId.push(id);
+        });
+
+        // loops through local storage and the array
+        for (let i = 0; i < localStorage.length; i++) {
+            for (j = 0; j < hoursId.length; j++) {
+                if (localStorage.key(i) !== null && localStorage.key(i) !== undefined) {
+                    if (localStorage.key(i) === hoursId[j]) {
+                        let storedText = localStorage.getItem(localStorage.key(i));
+                        $('#' + localStorage.key(i)).html(storedText);
+                    }
+                }
+            }
+        }
+    }
+    getLocalStorage();
+
+    // save text to localstorage
+    saveButton.on("click", saveToStorage);
 });

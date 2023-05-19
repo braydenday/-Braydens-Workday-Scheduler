@@ -2,7 +2,7 @@
 
 ## Description
 
-I wanted a website for () this will be about what I learned!
+I wanted a website for scheduling a day planner, I learned how to apply Jquery in multiple ways, structure the DOM elements, adding more loops, and how to save to local storage!
 
 ## Table of Contents
 
@@ -13,14 +13,13 @@ I wanted a website for () this will be about what I learned!
 
 ## Installation
 
-N/A . This is a web application using an URL link. https://github.com/braydenday
+N/A . This is a web application using an URL link. https://braydenday.github.io/Braydens-Workday-Scheduler/
 
 ## Usage
 
 A website created to schedule your work day!
 
-![quiz game](/assets/Screenshot1.png?raw=true "Start of Quiz Game")
-![multiple choice questions](/assets/Screenshot2.png?raw=true "Multiple Choice Question")
+![workday-scheduler](/Assets/Screenshot1.png?raw=true "Work Day Scheduler")
 
 ## Credits
 Georgeyoo - https://github.com/coding-boot-camp/crispy-octo-meme created the starter code for the project
