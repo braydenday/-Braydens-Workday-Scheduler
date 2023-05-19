@@ -2,7 +2,7 @@
 
 ## Description
 
-I wanted a website for scheduling a day planner, I learned how to apply Jquery in multiple ways, structure the DOM elements, adding more loops, and how to save to local storage!
+I wanted a website for scheduling a day planner, I learned how to apply Jquery in multiple ways, structure the DOM elements, adding more loops, how to properly use this functions and how to save to local storage!
 
 ## Table of Contents
 
